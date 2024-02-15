@@ -8,6 +8,14 @@
 //    playGround.classList.remove('hidden');
 //  }
 
+//key board button press/////
+function handleKeyboardButtonPress(){
+  console.log('button pressed');
+}
+document.addEventListener('keyup', handleKeyboardButtonPress);
+
+
+
 
 function play(){
   hideElementById('home-screen');
@@ -20,7 +28,7 @@ function play(){
 function getARandomAlphabet(){
   const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
   const alphabets = alphabetString.split('');
-  // console.log(alphabets);
+  // console.log(alphabets);F
 
 //get a random index between 0 to 25
 const randomNumber = Math.random()*25;
@@ -30,15 +38,25 @@ const alphabet = alphabets[index];
 return alphabet;
 }
 
+//continue game................
 function continueGame(){
   //step-1: generate a random alphabet
   const alphabet = getARandomAlphabet();
 console.log(alphabet);
   
+
+
 //set random generate alphabet to show screen
 const currentAlphabetElement = document.getElementById('current-alphabet');
 currentAlphabetElement.innerText = alphabet;
+
+//set background color
+setBackgroundColorBYId(alphabet);
+
 }
 
 
-
+function addBackgroundColorById(elementId){
+  const element = document.getElementById(elementId);
+  element.classList.add('bg-orange-400');
+}
